@@ -1,0 +1,29 @@
+<div class="card card-body p-4 mt-2 rounded-0 bg-dark text-white">
+  <h3>Printers</h3>
+    <table class="table table-bordered table-hover table-dark">
+      <thead>
+      <tr>
+        <th>N.</th>  
+        <th>Printer</th>
+        <th>Alias</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    {{#each printers}}
+        <tbody>
+        <tr>
+            <td>{{@index}}</td>  
+            <td>{{Printer}}</td>
+            <td>{{Alias}}</td>
+            <td>
+              <a href="/printers/set/{{Id}}" class="btn btn-primary">Default</a>
+            </td>
+        </tr>
+        </tbody>
+    {{/each}}
+    </table>
+    <h4>Default printer:</h4>
+    {{#if defaultPrinter}}
+      <input type="text" name="defaultPrinter" placeholder="Default Printer" id="defaultPrinter" value="{{defaultPrinter.Printer}} ({{defaultPrinter.Alias}})" class="form-control rounded-0 bg-dark text-white" readonly/>
+    {{/if}}
+</div>

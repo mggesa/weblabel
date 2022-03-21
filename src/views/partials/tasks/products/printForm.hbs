@@ -1,0 +1,16 @@
+{{#if encontrado}}
+<div class="card card-body p-4 rounded-0 bg-dark text-white mt-2">    
+    <form method="POST" action="/products/print">
+        <h3>Print Label</h3>
+        {{> tasks/dataTable }}
+        <div>            
+          <form method="POST" action="/products/print">
+            <label for="serialqty">Quantity:</label>
+            <input type="number" vaule={{products.serialqty}} name="serialqty" placeholder="Cantidad etiquetas" min="1" id="serialqty" class="form-control rounded-0 bg-dark text-white" />
+            <button class="btn btn-success btn-sm mt-2" >Print</button>
+            <a href="/products" class="btn btn-secondary btn-sm mt-2" >Cancel</a>
+        </form>
+        </div>
+    </form>    
+</div>
+{{/if}}

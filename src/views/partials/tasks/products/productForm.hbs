@@ -1,0 +1,13 @@
+{{#unless encontrado}}
+<div class="card card-body p-4 mt-2 rounded-0 bg-dark text-white">
+  <h3>Find Product</h3>
+  <form method="POST" action="/products/find">
+  <div>
+    <label for="Code">Code:</label>
+    <input type="text" name="Code" placeholder="Code" id="Code" class="form-control rounded-0 bg-dark text-white"/>
+  </div>
+  <button class="btn btn-primary btn-sm mt-2" >Find</button>
+  <a href="/products" class="btn btn-secondary btn-sm mt-2" >Cancel</a>
+</form>
+</div>
+{{/unless}}

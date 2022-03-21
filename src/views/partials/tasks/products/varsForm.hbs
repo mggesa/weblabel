@@ -1,0 +1,32 @@
+{{#if encontrado}}
+<div class="card card-body p-4 rounded-0 bg-dark text-white mt-2">    
+    <form method="POST">                
+        <div>  
+            {{!-- Añado los controles al formulario la primera vez cuando busco --}}
+            {{#if vars}}
+                <h3>Form variables</h3>
+                {{#each vars}} 
+                <div>
+                    <label for={{this.name}}>{{this.name}}:</label>
+                    <input type="text" name={{this.name}} placeholder={{this.name}} id={{this.name}} value="{{value}}" class="form-control rounded-0 bg-dark text-white"/>
+                </div>    
+                {{/each}}  
+            {{else}}
+                <h3>No variables</h3>
+            {{/if}}
+            <input type="hidden" name="Code" id="Code" value="{{products.Code}}" class="" /> 
+        </div>
+        
+        <div class="mt-2">        
+            <h3>Impresión etiquetas</h3>
+            {{#if defaultPrinter}}
+                <label for="Printer">Default: {{defaultPrinter.Printer}} -- Alias: {{defaultPrinter.Alias}}</label>
+            {{/if}}
+            <input type="number" value="1" name="serialqty" placeholder="Cantidad etiquetas" min="1" id="serialqty" class="form-control rounded-0 bg-dark text-white mt-2" required/>
+            <button class="btn btn-info btn-sm mt-2" formaction="/products/preview">Preview</button>
+            <button class="btn btn-success btn-sm mt-2" formaction="/products/print">Print</button> 
+            <a href="/products" class="btn btn-secondary btn-sm mt-2" >Cancel</a> 
+        </div>
+    </form>
+</div>
+{{/if}}
